@@ -1,0 +1,285 @@
+@import "components/reset.css";
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,900');
+
+html {
+    height: 100vh;
+    width: 100vw;
+}
+
+body {
+    height: 100vh; width: 100vw;
+    display: grid;
+    grid-template-areas: "header header header"
+                         ". section ."
+                         "footer footer footer";
+    grid-template-rows: auto 1fr 45px;
+    grid-template-columns: 1fr 75% 1fr;
+}
+
+header {
+    grid-area: header;
+}
+header nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: rgb(162, 213, 242);
+    margin: 10px 35px;
+    padding: 10px 35px;
+    font-family: "Source Sans Pro", Arial, sans-serif;
+    color: rgb(250, 250, 250);
+}
+header nav a {
+    position: relative;
+    font-family: "Source Sans Pro", Arial, sans-serif;
+    font-weight: 300;
+    color: rgb(250, 250, 250);
+    text-decoration: none;
+    text-transform: uppercase;
+}
+header nav a::after {
+    content: "";
+    display: block;
+    position: absolute;
+    left: 0;
+    background-color: rgb(250, 250, 250);
+    height: 2px; width: 0;
+    transition: width 0.2s ease-in-out;
+    margin-top: 2px;
+}
+header nav a:hover::after {
+    width: 20px;
+}
+header nav .left-item a {
+    font-weight: 900;
+}
+header nav .right-item span {
+    font-weight: 700;
+    font-style: italic;
+}
+header nav .right-item .logout {
+    margin-top: 5px;
+    font-size: 0.85em;
+}
+
+section {
+    grid-area: section;
+    display: flex;
+    padding: 0 25px;
+}
+#home {
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: center;
+}
+#home .wrapper {
+    display: flex;
+    width: 85%;
+    margin: 15px 0;
+    color: rgb(250, 250, 250);
+    background-color: rgb(255, 126, 103);
+}
+#home .wrapper h2{
+    flex: 4;
+    padding: 20px;
+}
+#home .wrapper h2 a {
+    font-family: "Source Sans Pro", Arial, sans-serif;
+    font-weight: 400;
+    text-decoration: none;
+    font-size: 1.3em;
+    text-transform: uppercase;
+    color: rgb(250, 250, 250);
+}
+#home .wrapper form{
+    flex: 1;
+    height: 100%;
+    position: relative;
+    background-color: rgb(250, 250, 250);
+}
+#home .wrapper form input{
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    border: none; cursor: pointer;
+    background: inherit;
+    color: rgb(255, 126, 103);
+    font-family: "Source Sans Pro", Arial, sans-serif;
+    font-weight: 900;
+    font-size: 1.1em;
+}
+#home .new-article {
+    margin-top: 15px;
+}
+#home .new-article a {
+    position: relative;
+    text-decoration: none;
+    font-family: "Source Sans Pro", Arial, sans-serif;
+    font-weight: 300;
+    font-style: italic;
+    font-size: 1em;
+    color: rgb(7, 104, 159);
+}
+#home .new-article a::after {
+    content: "";
+    display: block;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgb(7, 104, 159);
+    height: 1px; width: 0;
+    transition: width 0.2s ease-in-out;
+}
+#home .new-article a:hover::after {
+    width: 100%;
+}
+
+
+#article .wrapper {
+    width: 100%;
+}
+#article .wrapper .delete{
+    background-color: rgb(255, 126, 103);
+    width: 100%; height: 50px;
+    margin: 15px 0;
+}
+#article .wrapper .delete form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%; width: 100%;
+}
+#article .wrapper .delete form input {
+    border: none;
+    color: rgb(250, 250, 250);
+    font-family: "Source Sans Pro", Arial, sans-serif;
+    font-weight: 900;
+    font-size: 1.6em;
+    cursor: pointer;
+}
+#article .wrapper .content {
+    font-family: "Source Sans Pro", Arial, sans-serif;
+    font-size: 1.2em;
+}
+#article .wrapper .content h2 {
+    font-size: 1.4em;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin: 25px 0 20px;
+}
+#article .wrapper .content p {
+    font-size: 0.9em;
+    font-weight: 300;
+    line-height: 1.1em;
+    margin: 0 0 20px;
+}
+#article .wrapper .comments {
+    width: 100%;
+    font-family: "Source Sans Pro", Arial, sans-serif;
+    margin-top: 40px;
+}
+#article .wrapper .comments .comment-create {
+    position: relative;
+    margin-top: 15px;
+    width: 100%;
+}
+#article .wrapper .comments .split {
+    display: block;
+    height: 2px; width: 25%;
+    background-color: rgb(7, 104, 159);
+    margin: 35px 0 15px;
+}
+#article .wrapper .comments .comment-create textarea {
+    width: 35%; height: 60px;
+    background-color: rgba(162, 213, 242, 0.1);
+    border: none;
+    font-family: "Source Sans Pro", Arial, sans-serif;
+    font-weight: 700;
+    font-size: 0.8em;
+    padding: 8px;
+}
+#article .wrapper .comments .comment-create input {
+    border: none;
+    padding: 5px 15px;
+    cursor: pointer;
+    color: rgb(250, 250, 250);
+    background-color: rgb(7, 104, 159);
+    font-family: "Source Sans Pro", Arial, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin: 10px 0;
+}
+#article .wrapper .comments .wrapper-comment {
+    display: flex;
+    align-items: center;
+    margin: 10px 0 0;
+}
+#article .wrapper .comments .wrapper-comment form input {
+    border: none;
+    padding: 5px 15px;
+    cursor: pointer;
+    background-color: #fff;
+    color: rgb(7, 104, 159);
+    font-family: "Source Sans Pro", Arial, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin: 10px 0;
+}
+#article .wrapper .comments .wrapper-comment p {
+    flex: 1;
+    background-color: rgb(250, 250, 250);
+    padding: 5px 10px;
+    font-size: 0.85em;
+}
+
+.wrapper-form {
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: center;
+}
+.wrapper-form form label {
+    font-family: "Source Sans Pro", Arial, sans-serif;
+    font-weight: 700;
+    font-size: 1.3em;
+    text-transform: uppercase;
+    color: rgb(255, 126, 103);
+    margin: 15px 0;
+}
+.wrapper-form form label input {
+    display: block;
+    background-color: rgba(162, 213, 242, 0.15);
+    height: 30px; width: 400px;
+    border: none;
+    margin: 5px 0;
+}
+.wrapper-form form label textarea {
+    display: block;
+    background-color: rgba(162, 213, 242, 0.15);
+    height: 60px; width: 400px;
+    border: none;
+    margin: 5px 0;
+}
+.wrapper-form form label input,
+.wrapper-form form label textarea {
+    font-family: "Source Sans Pro", Arial, sans-serif;
+    font-size: 0.7em;
+    font-weight: 700;
+    padding: 8px;
+}
+
+.wrapper-form form .form-submit {
+    border: none;
+    background-color: rgb(7, 104, 159);
+    padding: 5px 15px;
+    margin: 10px 0;
+    color: rgb(250, 250, 250);
+    cursor: pointer;
+    font-family: "Source Sans Pro", Arial, sans-serif;
+    font-weight: 700;
+    font-size: 0.85em;
+    text-transform: uppercase;
+}
+
+footer {
+    grid-area: footer;
+}
