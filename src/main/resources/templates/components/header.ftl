@@ -10,7 +10,7 @@
         <nav>
             <div class="left-item"><a href="/">Home</a></div>
             <div class="right-item">
-                <#if session?? >
+                <#if session??>
                     <p>Bonjour <span>${session.username}</span></p>
                     <p class="logout"><a href="/logout">Déconnexion</a></p>
                 <#else>

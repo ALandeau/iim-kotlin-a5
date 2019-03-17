@@ -118,28 +118,6 @@ fun Application.cmsApp(
                         call.respondRedirect("/article/$articleId")
                     }
                 }
-                route("/new"){
-                    get {
-                        val session: SingleSession? = call.sessions.get<SingleSession>()
-                        if (session != null) {
-                            call.respond(FreeMarkerContent("new.ftl",  mapOf("session" to session)))
-                        } else {
-                            call.respond(HttpStatusCode.Forbidden)
-                        }
-                    }
-                    post {
-                        val session: SingleSession? = call.sessions.get<SingleSession>()
-                        if (session != null) {
-                            val parameters = call.receiveParameters()
-                            val title = parameters["title"]!!
-                            val content = parameters["content"]!!
-                            postArticle.post(title, content)
-                            call.respondRedirect("/")
-                        } else {
-                            call.respond(HttpStatusCode.Forbidden)
-                        }
-                    }
-                }
             }
             route("/new") {
                 get {
